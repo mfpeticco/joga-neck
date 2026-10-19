@@ -1,0 +1,11 @@
+# Unpublished paper draft
+*.pdf
+
+# OS / editor
+.DS_Store
+*.swp
+.vscode/
+
+# Secrets
+.env
+.env.*
