@@ -1,4 +1,4 @@
-# Assembly
+# Assembly (DYNAMIXEL)
 
 Also on the [project website](https://joga.csail.mit.edu/neck/). Parts are listed in [`BOM.md`](BOM.md).
 
@@ -43,7 +43,7 @@ The arrow shows how each new part goes in. New printed parts are orange.
 
 ## 3. Mount on the G1
 
-<p align="center"><img src="images/g1_mount_screws.jpg" width="60%" alt="G1 torso with two red and two blue cover screws circled"/></p>
+<p align="center"><img src="../images/g1_mount_screws.jpg" width="60%" alt="G1 torso with two red and two blue cover screws circled"/></p>
 
 1. Power the robot off and remove the two **red** and two **blue** screws.
 2. Lift off the front neck cover and disconnect its microphone cable. The cover and red screws stay off.

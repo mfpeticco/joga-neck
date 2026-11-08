@@ -1,4 +1,4 @@
-# Bill of Materials
+# Bill of Materials (DYNAMIXEL)
 
 Quantities are for one neck.
 

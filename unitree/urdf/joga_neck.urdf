@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Joga Neck, Unitree version: 2-DoF pan-tilt camera neck for the Unitree G1 (https://joga.csail.mit.edu/neck/).
+     Built from the CAD, with the same link names, joint names, root frame, and joint zero as the
+     Dynamixel model used to train the Joga policies. Units: m, kg, rad.
+     revolute_1 = pan (+ = look left), revolute_2 = tilt (+ = look down).
+     Attach `root` to the G1 torso; g1/g1_joga_neck.xml does this at the calibrated mount pose. -->
+<robot name="joga_neck">
+  <mujoco>
+    <compiler meshdir="meshes/" strippath="true" discardvisual="false" fusestatic="false" />
+  </mujoco>
+  <!-- Torso Mount and the pan (yaw) servo. Attach this link to the G1 torso. -->
+  <link name="root">
+    <inertial>
+      <origin xyz="2.95014532e-05 -0.0198140197 0.035844683" rpy="0 0 0" />
+      <mass value="0.0819657591" />
+      <inertia ixx="0.000111974559" ixy="3.77632996e-09" ixz="-7.22877928e-08" iyy="0.000139552975" iyz="2.74668659e-05" izz="6.28455251e-05" />
+    </inertial>
+    <visual name="torso_mount">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/torso_mount.stl" />
+      </geometry>
+      <material name="torso_mount_material">
+        <color rgba="0.85 0.85 0.83 1" />
+      </material>
+    </visual>
+    <visual name="unitree_j288">
+      <origin xyz="-8.73468777e-18 -0.0292 0.0730008717" rpy="-3.14159265 1.57079633 0" />
+      <geometry>
+        <mesh filename="meshes/unitree_j288.stl" />
+      </geometry>
+      <material name="unitree_j288_material">
+        <color rgba="0.6471 0.6471 0.6471 1" />
+      </material>
+    </visual>
+  </link>
+  <!-- Yaw-Pitch Bracket and the tilt (pitch) servo. -->
+  <link name="pan_link">
+    <inertial>
+      <origin xyz="0.000317925279 -0.0273126016 -0.00700497476" rpy="0 0 0" />
+      <mass value="0.048616688" />
+      <inertia ixx="1.04348281e-05" ixy="8.25951962e-08" ixz="-2.75228003e-07" iyy="9.36816717e-06" iyz="7.81621343e-07" izz="7.13640353e-06" />
+    </inertial>
+    <visual name="unitree_j288_1">
+      <origin xyz="0.00800087167 -0.0304995372 -0.00786029089" rpy="1.57079633 2.22044605e-16 3.14159265" />
+      <geometry>
+        <mesh filename="meshes/unitree_j288.stl" />
+      </geometry>
+      <material name="unitree_j288_1_material">
+        <color rgba="0.6471 0.6471 0.6471 1" />
+      </material>
+    </visual>
+    <visual name="yaw_pitch_bracket">
+      <origin xyz="-3.46944695e-18 -0.0205 -0.00786" rpy="0 0 -3.14159265" />
+      <geometry>
+        <mesh filename="meshes/yaw_pitch_bracket.stl" />
+      </geometry>
+      <material name="yaw_pitch_bracket_material">
+        <color rgba="0.85 0.85 0.83 1" />
+      </material>
+    </visual>
+  </link>
+  <!-- Camera Mount and the OAK-1 W camera. -->
+  <link name="tilt_link">
+    <inertial>
+      <origin xyz="-0.0147335744 0.00171299941 0.0494547161" rpy="0 0 0" />
+      <mass value="0.0662464404" />
+      <inertia ixx="2.67838533e-05" ixy="-9.6805857e-08" ixz="-7.46336015e-08" iyy="3.07000343e-05" iyz="8.02734125e-07" izz="1.2089159e-05" />
+    </inertial>
+    <visual name="606_00001_rev3">
+      <origin xyz="-0.014501746 -0.000950000001 0.0562000136" rpy="-1.57079633 5.99520433e-15 -3.14159265" />
+      <geometry>
+        <mesh filename="meshes/_606_00001_REV3.stl" />
+      </geometry>
+      <material name="606_00001_rev3_material">
+        <color rgba="0.7686 0.8863 0.9529 1" />
+      </material>
+    </visual>
+    <visual name="606_00002_rev3">
+      <origin xyz="-0.0145 -0.001 0.0562000136" rpy="-1.57079633 5.77315973e-15 -3.14159265" />
+      <geometry>
+        <mesh filename="meshes/_606_00002_REV3.stl" />
+      </geometry>
+      <material name="606_00002_rev3_material">
+        <color rgba="0.9176 0.9176 0.9176 1" />
+      </material>
+    </visual>
+    <visual name="609_00001_adhesive">
+      <origin xyz="-0.014501746 -0.000950000001 0.0562000136" rpy="-1.57079633 -1.77635684e-15 -3.14159265" />
+      <geometry>
+        <mesh filename="meshes/_609_00001_ADHESIVE.stl" />
+      </geometry>
+      <material name="609_00001_adhesive_material">
+        <color rgba="0.498 0.498 0.498 1" />
+      </material>
+    </visual>
+    <visual name="609_00001_lens">
+      <origin xyz="-0.014501746 -0.000950000001 0.0562000136" rpy="-1.57079633 5.99520433e-15 -3.14159265" />
+      <geometry>
+        <mesh filename="meshes/_609_00001_LENS.stl" />
+      </geometry>
+      <material name="609_00001_lens_material">
+        <color rgba="0.9725 0.5294 0.0039 1" />
+      </material>
+    </visual>
+    <visual name="camera_mount">
+      <origin xyz="-0.0145 -6.9388939e-17 0.017" rpy="-1.79023463e-15 -5.77315973e-15 6.605827e-15" />
+      <geometry>
+        <mesh filename="meshes/camera_mount.stl" />
+      </geometry>
+      <material name="camera_mount_material">
+        <color rgba="0.85 0.85 0.83 1" />
+      </material>
+    </visual>
+  </link>
+  <!-- pan (yaw), + = look left -->
+  <joint name="revolute_1" type="revolute">
+    <parent link="root" />
+    <child link="pan_link" />
+    <origin xyz="1.93795258e-16 -0.0367 0.0798008717" rpy="0 0 0" />
+    <axis xyz="-6.80836813e-17 1.01794942e-16 1" />
+    <limit lower="-1.5708" upper="1.5708" effort="1.5" velocity="33.3" />
+  </joint>
+  <!-- tilt (pitch), + = look down -->
+  <joint name="revolute_2" type="revolute">
+    <parent link="pan_link" />
+    <child link="tilt_link" />
+    <origin xyz="0.0148008717 -0.0304995372 -0.000360290892" rpy="0 0 0" />
+    <axis xyz="1 -6.66133815e-15 1.39357542e-14" />
+    <limit lower="-0.3491" upper="1.5708" effort="1.5" velocity="33.3" />
+  </joint>
+  <!-- Camera optical frame on the OAK-1 W (same convention as the Dynamixel model). -->
+  <link name="camera_frame">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1e-09" />
+      <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12" />
+    </inertial>
+  </link>
+  <joint name="camera_joint" type="fixed">
+    <parent link="tilt_link" />
+    <child link="camera_frame" />
+    <origin xyz="-0.0144645965 -0.00882879888 0.0487449062" rpy="-1.56064209e-05 2.29266092e-05 -1.57096996" />
+  </joint>
+</robot>
